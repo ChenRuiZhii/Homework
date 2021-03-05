@@ -43,7 +43,7 @@ namespace _2._3
             }
            for (t=2;t<num;t++)
             {
-                for (int i = t+1; i < num; i++)
+                for (int i = t+1; i < Math.Sqrt(num); i++)
                 {
                     if (i % t == 0) data[i] = 0;
                 }
