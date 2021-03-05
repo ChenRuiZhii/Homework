@@ -63,7 +63,6 @@ namespace _2._1
         {
             numRest = 0;
             dataRest = new int[num];
-
             for (int j =0;j<num;j++)
             {
                 if(Judge(data[j]))
