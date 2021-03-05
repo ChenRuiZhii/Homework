@@ -41,9 +41,9 @@ namespace _2._3
             {
                 data[i] = 1;//先将初始属性全部设置为素数
             }
-           for (t=2;t<num;t++)
+           for (t=2;t<Math.Sqrt(num);t++)
             {
-                for (int i = t+1; i < Math.Sqrt(num); i++)
+                for (int i = t+1; i < num; i++)
                 {
                     if (i % t == 0) data[i] = 0;
                 }
