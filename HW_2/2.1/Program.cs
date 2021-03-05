@@ -58,31 +58,7 @@ namespace _2._1
             }
         }
 
-       /* public bool Judge (float x )
-        {
-            while (x == 1) return false;
-            while (x == 2) return true;
-            for(int i=2; i<x; i++)
-            {
-                while (x % i == 0) return false;
-            }
-            return true;
-        }*/
-
-        /*public void Choose()
-        {
-            numRest = 0;
-            dataRest = new int[num];
-            for (int j =0;j<num;j++)
-            {
-                if(Judge(data[j]))
-                {
-                    dataRest[numRest] = data[j];
-                    numRest++;
-                }
-               
-            } 
-        }*/
+     
 
     }
 }
