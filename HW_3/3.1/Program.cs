@@ -13,9 +13,17 @@ namespace _3._1
             Rectangle rectangle = new Rectangle(3.5,4);
             Square square = new Square(5.4);
             Triangle triangle = new Triangle(5.2,2);
-            rectangle.IsLegal();
-            square.IsLegal();
-            triangle.IsLegal();
+            if(rectangle.IsLegal())
+                Console.WriteLine("合法的长方形！");
+            else Console.WriteLine("合法的长方形！");
+            if (square.IsLegal())
+                Console.WriteLine("合法的正方形！");
+            else Console.WriteLine("非法的正方形！");
+
+            if (triangle.IsLegal())
+                Console.WriteLine("合法的三角形！");
+            else Console.WriteLine("非法的三角形！");
+
             Console.WriteLine(rectangle.Area());
             Console.WriteLine(square.Area());
             Console.WriteLine(triangle.Area());
@@ -32,6 +40,16 @@ namespace _3._1
     {
         private double width;
         private double height;
+        public double Width {
+            get => width;
+            set => width = value;
+        }
+        public double Height {
+            get => height;
+            set => height = value;
+        }
+
+
         public Rectangle(double width,double height)
         {
             this.width = width;
@@ -39,15 +57,13 @@ namespace _3._1
         }
         public bool IsLegal()
         {
-            if (width != 0 && height != 0)
+            if (width >= 0 && height >= 0)
             { 
-                Console.WriteLine("合法的长方形！");
                 return true;
 
             }
             else
             {
-                Console.WriteLine("非法的长方形！");
                 return false;
             }
         }
@@ -69,6 +85,17 @@ namespace _3._1
     {
         double width;
         double height;
+        public double Width
+        {
+            get => width;
+            set => width = value;
+        }
+        public double Height
+        {
+            get => height;
+            set => height = value;
+        }
+
         public Triangle(double wid,double hei)
         {
             width = wid;
@@ -76,15 +103,13 @@ namespace _3._1
         }
         public bool IsLegal()
         {
-            if (width != 0 && height != 0)
+            if (width >= 0 && height >= 0)
             {
-                Console.WriteLine("合法的三角形！");
                 return true;
 
             }
             else
             {
-                Console.WriteLine("非法的三角形！");
                 return false;
             }
         }
