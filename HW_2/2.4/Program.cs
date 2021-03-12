@@ -41,7 +41,7 @@ namespace _2._4
                 }
             }
         }
-        public bool WheatherToeplitz()
+        public bool IsToeplitz()
         {
             for(int i=0;i<m-1; i++)
             {
@@ -54,7 +54,7 @@ namespace _2._4
         }
         public void Output()
         {
-            if (WheatherToeplitz())
+            if (IsToeplitz())
                 Console.WriteLine("这是一个托普利茨矩阵！");
             else
                 Console.WriteLine("这不是一个托普利茨矩阵！");
