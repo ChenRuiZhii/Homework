@@ -127,9 +127,10 @@ namespace _3._2
 
     class ShapeFactory
     {
+        readonly static Random rd = new Random();
+
         public static Shape CreateRandom()
         {
-            Random rd = new Random();
             
             int a = rd.Next(1, 3);
             int w, h;
