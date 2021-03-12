@@ -12,8 +12,8 @@ namespace _3._2
         {
             Shape rec = ShapeFactory.CreatShape("Rectangle", 12.5, 8);
             Shape tri = ShapeFactory.CreatShape("Triangle",12.5, 8);
-            Shape sqa = ShapeFactory.CreatShape("Sqare", 11, 11);
-            Console.WriteLine(rec.Area() + tri.Area() + sqa.Area());
+            Shape squ = ShapeFactory.CreatShape("Sqare", 11, 11);
+            Console.WriteLine(rec.Area() + tri.Area() + squ.Area());
         }
     }
     interface Shape
