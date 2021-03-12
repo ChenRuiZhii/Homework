@@ -127,7 +127,7 @@ namespace _3._2
 
     class ShapeFactory
     {
-        readonly static Random rd = new Random();
+        readonly static Random rd = new Random();//更改
 
         public static Shape CreateRandom()
         {
