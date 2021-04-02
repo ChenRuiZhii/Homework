@@ -52,9 +52,37 @@ namespace T6
                 switch (str)
                 {
                     case "1": orderService.AddOrder(); break;
-                    case "2": orderService.DeleteOrder(); break;
-                    case "3": orderService.ModifyOrder(); break;
-                    case "4": orderService.SearchOrder(); break;
+
+                    case "2":
+                        Console.WriteLine("输入想要删除的订单号：");
+                        string id =Console.ReadLine();
+                        if (orderService.DeleteOrder(id)) Console.WriteLine("已删除！");
+                        else Console.WriteLine("未能找到相应订单！");
+                        break;
+                    case "3": 
+            Console.WriteLine("请输入想要修改的订单号：");
+                        id = Console.ReadLine();
+                        Console.WriteLine("请输入想要修改的项目（1：客户  2：下单时间  3、配送地址  按两次任意键返回）：");
+                        string item = Console.ReadLine();
+                        string target;
+                        target = Console.ReadLine();
+
+                      
+                        orderService.ModifyOrder(id,item,target); break;
+
+                    case "4":
+                        Console.WriteLine("您想要输出所有订单还是查询某一订单？（输入1以查询所有(按总金额排序返回)  按任意键进行精准查询）");
+
+                        string choice;
+                        choice = Console.ReadLine();
+                        if (choice != "1")
+                            id = Console.ReadLine();
+                        else id = "";
+                        bool k=orderService.SearchOrder(choice,id);
+                        if (k == false) Console.WriteLine("未查找到该订单!");
+                        break;
+
+
                     case "5":orderService.Export();break;
                     case "6":Console.WriteLine("请输入反序列化文件名：");
                         string fileName = Console.ReadLine();
@@ -171,6 +199,8 @@ namespace T6
         public OrderService() { }
         public List<Order> orders = new List<Order>();
         //增删改查
+
+      
         public void AddOrder()
         {
             string str, id, cus, oderTime, price, add, comName;
@@ -226,34 +256,26 @@ namespace T6
             SortOrders();
         }
 
-        public void DeleteOrder()
+        public bool DeleteOrder(string id)
         {
-            Console.WriteLine("请输入想要删除的订单号：");
-            string str;
-            str = Console.ReadLine();
             foreach (Order i in orders)
             {
-                if (int.Parse(str) == i.id)
+                if (int.Parse(id) == i.id)
                 {
-                    Console.WriteLine("已删除！");
                     orders.Remove(i);
-                    return;
+                    return true;
                 }
             }
-            Console.WriteLine("未找到相应订单！");
-
+            return false;
         }
 
-        public void ModifyOrder()
+        public bool ModifyOrder(string id,string item,string target)
         {
-            string str;
             bool isfind = false;
-            Console.WriteLine("请输入想要修改的订单号：");
-            str = Console.ReadLine();
             Order modifyOrder = new Order();
             foreach (Order i in orders)
             {
-                if (int.Parse(str) == i.id)
+                if (int.Parse(id) == i.id)
                 {
                     modifyOrder = i;
                     isfind = true;
@@ -261,39 +283,32 @@ namespace T6
                 }
 
             }
-            if (!isfind) return;
-            Console.WriteLine("请输入想要修改的项目（1：客户  2：下单时间  3、配送地址  按任意键返回）：");
+            if (!isfind) return false;
 
-            switch (str)
+
+            switch (item)
             {
                 case "1":
-                    Console.WriteLine("输入客户名：");
-                    str = Console.ReadLine();
-                    modifyOrder.customer.customername = str;
+                    modifyOrder.customer.customername = target;
                     break;
                 case "2":
-                    Console.WriteLine("输入下单时间：");
-                    str = Console.ReadLine();
-                    modifyOrder.oderTime = str;
+                    modifyOrder.oderTime = target;
                     break;
                 case "3":
-                    Console.WriteLine("输入配送地址：");
-                    str = Console.ReadLine();
-                    modifyOrder.address = str;
+                    modifyOrder.address = target;
                     break;
                 default: break;
             }
+            return true;
         }
         public void SortOrders()
         {
             orders.Sort((p1, p2) => (p1.id - p2.id));
         }
-        public void SearchOrder()
+        public bool SearchOrder(string choice,string id)
         {
-            Console.WriteLine("您想要输出所有订单还是查询某一订单？（输入1以查询所有(按总金额排序返回)  按任意键进行精准查询）");
-            string str;
-            str = Console.ReadLine();
-            if (str == "1")
+      
+            if (choice == "1")
             {
                 var all = from o in orders
                           orderby o.sumPrice
@@ -305,18 +320,16 @@ namespace T6
             }
             else
             {
-                Console.WriteLine("输入订单号：");
-                str = Console.ReadLine();
                 foreach (Order i in orders)
                 {
-                    if (i.id == int.Parse(str))
+                    if (i.id == int.Parse(id))
                     {
                         Console.WriteLine(i.ToString());
-                        return;
+                        return false;
                     }
                 }
-                Console.WriteLine("订单号未查询到！");
             }
+            return true;
         }
 
         public void Export()
