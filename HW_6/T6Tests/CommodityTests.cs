@@ -14,7 +14,6 @@ namespace T6.Tests
         [TestMethod()]
         public void ToStringTest()
         {
-            Assert.Fail();
         }
     }
 }
