@@ -30,6 +30,18 @@ namespace T7
         void drawCayleyTree(int n,double x0,double y0,double leng,double th)
         {
             if (n == 0) return;
+            else if (n > 12||n<0)
+            {
+                textBox1.Text = "12";
+                n = 12;//递归深度不能超过12
+            }
+
+            if (leng > 130||leng<0)
+            {
+                textBox2.Text = "130";
+                leng = 130;
+            }
+
 
             double per1 = double.Parse(textBox3.Text);
             double per2 = double.Parse(textBox4.Text);
@@ -49,9 +61,9 @@ namespace T7
 
         void drawLine(double x0,double y0,double x1,double y1)
         {
-            Color color = Color.FromName(textBox7.Text);
+            Color color = Color.FromName(comboBox1.Text);
             Pen pen1 = new Pen(color);
-            string pen = textBox7.Text;
+            string pen = comboBox1.Text;
             graphics.DrawLine(
                 pen1,
                 (int)x0, (int)y0, (int)x1, (int)y1);
@@ -100,6 +112,23 @@ namespace T7
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+           
+        }
+
+        private void comboBox1_Layout(object sender, LayoutEventArgs e)
+        {
+            Array colors = System.Enum.GetValues(typeof(KnownColor));
+            foreach (object colorName in colors)
+            {
+
+                comboBox1.Items.Add(colorName);
+
+            }
         }
     }
 }
