@@ -51,7 +51,51 @@ namespace T6
                 string str = Console.ReadLine();
                 switch (str)
                 {
-                    case "1": orderService.AddOrder(); break;
+                    case "1":
+
+                        string str1, id1, cus1, oderTime, price, add, comName;
+                        double pri;
+                        int num;
+                        Console.WriteLine("开始增添新的订单！请依次输入：订单ID，客户，下单时间，配送地址");
+                        id1 = Console.ReadLine();
+                        cus1 = Console.ReadLine();
+                        oderTime = Console.ReadLine();
+                        add = Console.ReadLine();
+                        Order newOrder = new Order(id1, cus1, oderTime, add);//尚未add
+
+                        bool isOver = false;
+                        while (!isOver)
+                        {
+                            Console.WriteLine("正在增添订单明细！请输入货物名称，单价，数量");
+                            comName = Console.ReadLine();
+                            str1 = Console.ReadLine();
+                            pri = double.Parse(str1);
+                            str1 = Console.ReadLine();
+                            num = int.Parse(str1);
+                            OrderDetails newDetails = new OrderDetails(comName, pri, num);
+                            bool isAdd = false;
+                            foreach (OrderDetails i in newOrder.orderDetails)
+                            {
+                                if (newDetails.Equals(i))
+                                {
+                                    Console.WriteLine("重复添加！该数据不会被添加！");
+                                    isAdd = true;
+                                    break;
+                                }
+
+                            }
+                            if (isAdd == false)
+                                newOrder.orderDetails.Add(newDetails);
+                            Console.WriteLine("添加完成？（输入1以继续添加，任意键以完成添加！）");
+                            if (Console.ReadLine() == "1")
+                            {
+                            }
+                            else
+                                isOver = true;
+                            newOrder.AddToSum();
+
+                        }
+                        orderService.AddOrder(newOrder); break;
 
                     case "2":
                         Console.WriteLine("输入想要删除的订单号：");
@@ -201,58 +245,21 @@ namespace T6
         //增删改查
 
       
-        public void AddOrder()
+        public void AddOrder(Order order)
         {
-            string str, id, cus, oderTime, price, add, comName;
-            double pri;
-            int num;
-            Console.WriteLine("开始增添新的订单！请依次输入：订单ID，客户，下单时间，配送地址");
-            id = Console.ReadLine();
-            cus = Console.ReadLine();
-            oderTime = Console.ReadLine();
-            add = Console.ReadLine();
-            Order newOrder = new Order(id, cus, oderTime, add);//尚未add
-            foreach (Order i in orders)
+            try
             {
-                if (newOrder.Equals(i))
+                if (orders.Contains(order))
                 {
-                    Console.WriteLine("重复添加！");
-                    return;
+                    throw new ApplicationException($"the order {order.id} already exists!");
                 }
-            }
-            bool isOver = false;
-            while (!isOver)
-            {
-                Console.WriteLine("正在增添订单明细！请输入货物名称，单价，数量");
-                comName = Console.ReadLine();
-                str = Console.ReadLine();
-                pri = double.Parse(str);
-                str = Console.ReadLine();
-                num = int.Parse(str);
-                OrderDetails newDetails = new OrderDetails(comName, pri, num);
-                bool isAdd = false;
-                foreach (OrderDetails i in newOrder.orderDetails)
-                {
-                    if (newDetails.Equals(i))
-                    {
-                        Console.WriteLine("重复添加！该数据不会被添加！");
-                        isAdd = true;
-                        break;
-                    }
-
-                }
-                if (isAdd == false)
-                    newOrder.orderDetails.Add(newDetails);
-                Console.WriteLine("添加完成？（输入1以继续添加，任意键以完成添加！）");
-                if (Console.ReadLine() == "1")
-                {
-                }
-                else
-                    isOver = true;
-                newOrder.AddToSum();
 
             }
-            orders.Add(newOrder);
+            catch (ApplicationException)
+            {
+                return;
+            }
+            orders.Add(order);
             SortOrders();
         }
 
@@ -325,11 +332,11 @@ namespace T6
                     if (i.id == int.Parse(id))
                     {
                         Console.WriteLine(i.ToString());
-                        return false;
+                        return true;
                     }
                 }
             }
-            return true;
+            return false;
         }
 
         public void Export()

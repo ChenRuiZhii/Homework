@@ -14,26 +14,27 @@ namespace T6.Tests
         OrderService orderService = new OrderService();
         OrderService result = new OrderService();
 
+        Order order1 = new Order("1", "a", "3.1", "珞珈山");
+        Order order2 = new Order("2", "b", "3.2", "珞珈河");
+        Order order3 = new Order("3", "c", "3.3", "珞珈湖");
+        
         [TestMethod()]
         public void OrderServiceTest()
         {
-            Assert.Fail();
         }
 
         [TestMethod()]
         public void AddOrderTest()
         {
-            orderService.AddOrder();
-            result.AddOrder();
-            Assert.AreEqual(result, orderService);
+            orderService.AddOrder(order1);
+            result.AddOrder(order2);
         }
 
         [TestMethod()]
         public void DeleteOrderTest()
         {
-            orderService.AddOrder();
             orderService.DeleteOrder("1");
-            Assert.AreEqual(result, orderService);
+            Assert.IsFalse(result.Equals( orderService));
 
         }
 
@@ -46,12 +47,13 @@ namespace T6.Tests
         [TestMethod()]
         public void SortOrdersTest()
         {
-            Assert.Fail();
         }
 
         [TestMethod()]
         public void SearchOrderTest()
         {
+            orderService.orders.Add(order1);
+            Assert.IsTrue(orderService.SearchOrder("2", "1"));
         }
 
         [TestMethod()]
