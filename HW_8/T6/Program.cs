@@ -123,7 +123,7 @@ namespace T6
                             id = Console.ReadLine();
                         else id = "";
                         bool k=orderService.SearchOrder(choice,id);
-                        if (k == false) Console.WriteLine("未查找到该订单!");
+                        if (k == false&&choice!="1") Console.WriteLine("未查找到该订单!");
                         break;
 
 
@@ -145,7 +145,7 @@ namespace T6
         public string customername { get; set; }
         public override string ToString()
         {
-            return "用户名为：" + customername;
+            return "用户名：" + customername;
         }
     }
 
@@ -218,6 +218,8 @@ namespace T6
         }
         public Commodity commodity;
         public int number { get; set; }
+        public string comName { get; set; }
+        public double comPrice { get; set; }
         public OrderDetails()
         {
 
@@ -225,11 +227,16 @@ namespace T6
         public OrderDetails(string com, double price)
         {
             commodity = new Commodity(com, price);
+            this.comName = com;
+            this.comPrice = price;
+
         }
         public OrderDetails(string com, double price, int num)
         {
             commodity = new Commodity(com, price);
             this.number = num;
+            this.comName = com;
+            this.comPrice = price;
         }
         public bool Equals(OrderDetails a)
         {
@@ -249,11 +256,15 @@ namespace T6
         {
             try
             {
-                if (orders.Contains(order))
+                foreach (Order i in orders)
                 {
-                    throw new ApplicationException($"the order {order.id} already exists!");
-                }
+                    if (i.id==order.id)
+                    {
+                        throw new ApplicationException($"the order {order.id} already exists!");
+                    }
 
+                }
+                
             }
             catch (ApplicationException)
             {
@@ -324,7 +335,6 @@ namespace T6
                 {
                     Console.WriteLine(i.ToString());
                 }
-                return true;
             }
             else
             {
