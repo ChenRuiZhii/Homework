@@ -31,6 +31,7 @@ namespace T8
 
 
                     dataGridView1.DataSource = i.orderDetails;
+                    this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
 
                     return;

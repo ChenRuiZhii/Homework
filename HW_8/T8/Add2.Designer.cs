@@ -32,14 +32,14 @@ namespace T8
             this.components = new System.ComponentModel.Container();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.comNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.comNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +64,30 @@ namespace T8
             this.dataGridView1.Size = new System.Drawing.Size(470, 164);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // comNameDataGridViewTextBoxColumn
+            // 
+            this.comNameDataGridViewTextBoxColumn.DataPropertyName = "comName";
+            this.comNameDataGridViewTextBoxColumn.HeaderText = "商品名";
+            this.comNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.comNameDataGridViewTextBoxColumn.Name = "comNameDataGridViewTextBoxColumn";
+            this.comNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // comPriceDataGridViewTextBoxColumn
+            // 
+            this.comPriceDataGridViewTextBoxColumn.DataPropertyName = "comPrice";
+            this.comPriceDataGridViewTextBoxColumn.HeaderText = "单价";
+            this.comPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.comPriceDataGridViewTextBoxColumn.Name = "comPriceDataGridViewTextBoxColumn";
+            this.comPriceDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // numberDataGridViewTextBoxColumn
+            // 
+            this.numberDataGridViewTextBoxColumn.DataPropertyName = "number";
+            this.numberDataGridViewTextBoxColumn.HeaderText = "数量";
+            this.numberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
+            this.numberDataGridViewTextBoxColumn.Width = 125;
             // 
             // textBox1
             // 
@@ -90,7 +114,7 @@ namespace T8
             // 
             this.button1.Location = new System.Drawing.Point(394, 251);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(104, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "添加详情";
             this.button1.UseVisualStyleBackColor = true;
@@ -100,35 +124,11 @@ namespace T8
             // 
             this.button2.Location = new System.Drawing.Point(130, 381);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(106, 23);
             this.button2.TabIndex = 5;
             this.button2.Text = "完成添加";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // comNameDataGridViewTextBoxColumn
-            // 
-            this.comNameDataGridViewTextBoxColumn.DataPropertyName = "comName";
-            this.comNameDataGridViewTextBoxColumn.HeaderText = "商品名";
-            this.comNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.comNameDataGridViewTextBoxColumn.Name = "comNameDataGridViewTextBoxColumn";
-            this.comNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // comPriceDataGridViewTextBoxColumn
-            // 
-            this.comPriceDataGridViewTextBoxColumn.DataPropertyName = "comPrice";
-            this.comPriceDataGridViewTextBoxColumn.HeaderText = "单价";
-            this.comPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.comPriceDataGridViewTextBoxColumn.Name = "comPriceDataGridViewTextBoxColumn";
-            this.comPriceDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // numberDataGridViewTextBoxColumn
-            // 
-            this.numberDataGridViewTextBoxColumn.DataPropertyName = "number";
-            this.numberDataGridViewTextBoxColumn.HeaderText = "数量";
-            this.numberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
-            this.numberDataGridViewTextBoxColumn.Width = 125;
             // 
             // Add2
             // 

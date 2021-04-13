@@ -51,6 +51,8 @@ namespace T8
             orderService.orders.Add(orderC);
             orderService.orders.Add(orderD);
             dataGridView1.DataSource = orderService.orders;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+
 
         }
 
@@ -91,6 +93,27 @@ namespace T8
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = null;
+
+            dataGridView1.DataSource = orderService.orders;
+
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+
+            
+        }
+
+        private void orderBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

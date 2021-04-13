@@ -42,7 +42,7 @@ namespace T8
             double pri;
             int num;
             //Console.WriteLine("开始增添新的订单！请依次输入：订单ID，客户，下单时间，配送地址");
-            textBox1.DataBindings.Add("Text", this, "ID");
+            //textBox1.DataBindings.Add("Text", this, "ID");
             //textBox2.DataBindings.Add("Text", this, "cus1");
             //textBox3.DataBindings.Add("Text", this, "orderTime");
             //textBox4.DataBindings.Add("Text", this, "add");

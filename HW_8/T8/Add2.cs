@@ -77,6 +77,7 @@ namespace T8
 
             
             orderService.AddOrder(newOrder);
+            this.Close();
         }
     }
 }
