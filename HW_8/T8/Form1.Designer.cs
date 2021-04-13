@@ -36,9 +36,12 @@ namespace T8
             this.sumPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
@@ -100,10 +103,6 @@ namespace T8
             // 
             this.bindingSource1.DataSource = typeof(T6.Order);
             // 
-            // orderBindingSource
-            // 
-            this.orderBindingSource.DataSource = typeof(T6.Order);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -126,17 +125,53 @@ namespace T8
             this.label2.TabIndex = 2;
             this.label2.Text = "双击总价格以查询对应订单详情";
             // 
+            // orderBindingSource
+            // 
+            this.orderBindingSource.DataSource = typeof(T6.Order);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(353, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 57);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "添加信息";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(454, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(95, 57);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "删除信息";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(555, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(95, 57);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "更改信息";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(729, 450);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
@@ -156,6 +191,9 @@ namespace T8
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
 

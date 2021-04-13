@@ -16,6 +16,7 @@ namespace T8
         public OrderService orderService = new OrderService();
         public Form1()
         {
+            
             InitializeComponent();
 
             OrderDetails recreationalMachines = new OrderDetails("游戏机", 1000.00);
@@ -74,6 +75,22 @@ namespace T8
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            Add1 add1 = new Add1();
+            add1.orderService = orderService;
+            add1.form1 = this;
+            add1.ShowDialog();
+
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
