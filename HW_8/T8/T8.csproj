@@ -58,6 +58,30 @@
     <Compile Include="Add2.Designer.cs">
       <DependentUpon>Add2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Delete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delete.Designer.cs">
+      <DependentUpon>Delete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteError.Designer.cs">
+      <DependentUpon>DeleteError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteSucced.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteSucced.Designer.cs">
+      <DependentUpon>DeleteSucced.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Export.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export.Designer.cs">
+      <DependentUpon>Export.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,13 +100,55 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inport.Designer.cs">
+      <DependentUpon>Inport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyChoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyChoice.Designer.cs">
+      <DependentUpon>ModifyChoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search.Designer.cs">
+      <DependentUpon>Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchReturn.Designer.cs">
+      <DependentUpon>SearchReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Succeed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Succeed.Designer.cs">
+      <DependentUpon>Succeed.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Add1.resx">
       <DependentUpon>Add1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Add2.resx">
       <DependentUpon>Add2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delete.resx">
+      <DependentUpon>Delete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteError.resx">
+      <DependentUpon>DeleteError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteSucced.resx">
+      <DependentUpon>DeleteSucced.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export.resx">
+      <DependentUpon>Export.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -93,6 +159,12 @@
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inport.resx">
+      <DependentUpon>Inport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyChoice.resx">
+      <DependentUpon>ModifyChoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -102,6 +174,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Search.resx">
+      <DependentUpon>Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchReturn.resx">
+      <DependentUpon>SearchReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Succeed.resx">
+      <DependentUpon>Succeed.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

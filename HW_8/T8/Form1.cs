@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using T6;
 
+
 namespace T8
 {
     public partial class Form1 : Form
@@ -113,9 +114,40 @@ namespace T8
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)//删除
+        {
+            Delete delete = new Delete();
+            delete.orderService = orderService;
+            delete.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
         {
 
+            ModifyChoice modifyChoice = new ModifyChoice();
+            modifyChoice.orderService = orderService;
+            modifyChoice.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Search search = new Search();
+            search.orderService = orderService;
+            search.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Export export = new Export();
+            export.orderService = orderService;
+            export.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Inport inport = new Inport();
+            inport.orderService = orderService;
+            inport.ShowDialog();
         }
     }
 }
