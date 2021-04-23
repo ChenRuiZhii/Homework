@@ -30,15 +30,20 @@ namespace Crawler
         
         public class WebCrawler
         {
-            public Hashtable urls = new Hashtable();
+            public Hashtable urls;
             private int count = 0;
+
+            public WebCrawler(Hashtable url)
+            {
+                this.urls = url;
+                CheckForIllegalCrossThreadCalls = false;
+            }
 
             public Label label;
             public int maxCount { get; set; }
             
             public void Crawl()
             {
-                label.Text = "开始爬行....";
                 while(true)
                 {
                     string current = null;
@@ -57,7 +62,6 @@ namespace Crawler
                     count++;
                     Parse(html,current);
                 }
-                label.Text += "\n爬行结束";
             }
 
             public string DownLoad(string url)
@@ -98,10 +102,14 @@ namespace Crawler
 
 
         }
+        public Hashtable urls = new Hashtable();
 
         private void start_Click(object sender, EventArgs e)
         {
-            WebCrawler myCrawler = new WebCrawler();
+            testLable.Text = "开始爬行....";
+
+
+            WebCrawler myCrawler = new WebCrawler(urls);
             int k = int.Parse(textBox1.Text);
             if (k > 0 && k < 15)
             {
@@ -111,12 +119,34 @@ namespace Crawler
                 myCrawler.maxCount = 10;
             myCrawler.label = testLable;
             string startUrl = textForWeb.Text;
-
+            try { 
             myCrawler.urls.Add(startUrl, false);
-            myCrawler.Crawl();
-           // new Thread(myCrawler.Crawl).Start();
+
+            }
+            catch (ArgumentException ) {
             
-            
+            }
+            // myCrawler.Crawl();
+
+
+            lock (urls)
+            {
+                myCrawler.Crawl();
+            }
+
+            Parallel.Invoke(new Action[]
+            {
+                
+                ()=> myCrawler.Crawl(),
+                ()=> myCrawler.Crawl()
+            });
+            testLable.Text += "\n爬行结束";
+
+
+
+            // new Thread(myCrawler.Crawl).Start();
+
+
         }
 
         private void testLable_Click(object sender, EventArgs e)
