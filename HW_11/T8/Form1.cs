@@ -17,7 +17,7 @@ namespace T8
         public OrderService orderService = new OrderService();
         public Form1()
         {
-            
+
             InitializeComponent();
 
             OrderDetails recreationalMachines = new OrderDetails("游戏机", 1000.00);
@@ -47,11 +47,33 @@ namespace T8
             orderD.AddToSum();
 
 
-            orderService.orders.Add(orderA);
-            orderService.orders.Add(orderB);
-            orderService.orders.Add(orderC);
-            orderService.orders.Add(orderD);
-            dataGridView1.DataSource = orderService.orders;
+            //orderService.orders.Add(orderA);
+            //orderService.orders.Add(orderB);
+            //orderService.orders.Add(orderC);
+            // orderService.orders.Add(orderD);
+            //dataGridView1.DataSource = orderService.orders;
+            //Customer A = new Customer();
+            //A.customername = "A";
+            
+            using (var db = new OrderModel())
+            {
+                var orderservice = new OrderService { OrderServiceId = 1 };
+                orderservice.orders = new List<Order>()
+                {
+                    //new Order() { address ="1", customer = A , id = 1, oderTime ="yy-mm-dd" , orderDetails = orderA.orderDetails, sumPrice=0 },
+                    orderA//,orderB,orderC
+                };
+                db.orderServices.Add(orderservice);
+               // db.orders.Add(orderD);
+                db.SaveChanges();
+             }
+
+
+            // var db = new OrderModel();
+            // db.orders.Add(orderA);
+            //  db.orders.Add(orderD);
+            var fortest = new OrderModel();
+            dataGridView1.DataSource = fortest.orders;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
 

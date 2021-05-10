@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
+using System.ComponentModel.DataAnnotations;
 
 namespace T6
 {
@@ -163,6 +164,7 @@ namespace T6
             return "订单号：" + id + "下单时间：" + oderTime + "总价格" + sumPrice + customer.ToString() + "地址：" + address;
         }
         public Customer customer = new Customer();
+        [Key]
         public int id { get; set; }
         public string oderTime { get; set; }
         public double sumPrice { get; set; }
@@ -217,7 +219,9 @@ namespace T6
             return commodity.ToString() + "数量：" + number;
         }
         public Commodity commodity;
+
         public int number { get; set; }
+        [Key]
         public string comName { get; set; }
         public double comPrice { get; set; }
         public OrderDetails()
@@ -247,6 +251,7 @@ namespace T6
 
     public class OrderService
     {
+        public int OrderServiceId { get; set; }
         public OrderService() { }
         public List<Order> orders = new List<Order>();
         //增删改查
