@@ -57,7 +57,7 @@ namespace T8
             //order1.orderDetails.Add(recreationalMachines);
             Customer A = new Customer();
             A.customername = "A";
-
+             
             using (var db = new OrderModel())
             {
                 var order = new Order { address = "WHU", Id = 1, oderTime = "now", customer = A };
