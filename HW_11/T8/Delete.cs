@@ -27,6 +27,18 @@ namespace T8
         {
          
             string id = textBox1.Text;
+            using (var db = new OrderModel())
+            {
+
+                var order = db.orders.Include("OrderDetails").FirstOrDefault(p => p.id == int.Parse(id));
+                if (order != null)
+                {
+                    db.orders.Remove(order);
+                    db.SaveChanges();
+                }
+               
+            }
+
             if (orderService.DeleteOrder(id))
             {
                 DeleteSucced deleteSucced = new DeleteSucced();

@@ -17,7 +17,7 @@ namespace T8
         {
             InitializeComponent();
             label1.Text = order.customer.ToString();
-            label2.Text = "订单号：" + order.Id;
+            label2.Text = "订单号：" + order.id;
             label3.Text = "配送地址：" + order.address;
 
             label4.Text = "总价格：" + order.sumPrice;

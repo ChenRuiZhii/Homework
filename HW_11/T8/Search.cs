@@ -23,16 +23,28 @@ namespace T8
 
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach(Order i in orderService.orders)
+
+            using (var db = new OrderModel())
             {
-                if(i.Id == int.Parse(textBox1.Text))
+                var order = db.orders.FirstOrDefault(p => p.id == int.Parse(textBox1.Text));
+
+                SearchReturn searchReturn = new SearchReturn(order);
+                searchReturn.ShowDialog();
+
+            }
+
+
+
+            /*foreach (Order i in orderService.orders)
+            {
+                if(i.id == int.Parse(textBox1.Text))
                 {
                     SearchReturn searchReturn = new SearchReturn(i);
                     searchReturn.ShowDialog();
                     this.Close();
                     break;
                 }
-            }
+            }*/
         }
     }
 }

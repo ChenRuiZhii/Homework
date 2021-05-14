@@ -41,12 +41,12 @@ namespace T8
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
@@ -160,16 +160,6 @@ namespace T8
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(624, 84);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(95, 58);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "刷新";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -194,15 +184,15 @@ namespace T8
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // button4
             // 
-            this.button6.Location = new System.Drawing.Point(422, 83);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(95, 57);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "序列化";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button4.Location = new System.Drawing.Point(624, 84);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(95, 58);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "刷新";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button7
             // 
@@ -213,6 +203,16 @@ namespace T8
             this.button7.Text = "反序列化";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(422, 83);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(95, 57);
+            this.button6.TabIndex = 9;
+            this.button6.Text = "序列化";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Form1
             // 
@@ -256,11 +256,11 @@ namespace T8
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
     }
 }
 

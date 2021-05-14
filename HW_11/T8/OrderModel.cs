@@ -11,7 +11,7 @@ namespace T8
     {
       
         public OrderModel()
-            : base("name=OrderModel")
+            : base("OrderModel")
         {
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<OrderModel>());
         }

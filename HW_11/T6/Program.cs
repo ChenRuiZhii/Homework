@@ -153,7 +153,7 @@ namespace T6
     public class Order//订单ID，客户，下单时间，总金额，配送地址
     {
         public Order() {
-            this.Id = 0;
+            this.id = 0;
             this.customer.customername = "nil";
             this.oderTime = "nil";
 
@@ -161,16 +161,16 @@ namespace T6
         }
         public override string ToString()
         {
-            return "订单号：" + Id + "下单时间：" + oderTime + "总价格" + sumPrice + customer.ToString() + "地址：" + address;
+            return "订单号：" + id + "下单时间：" + oderTime + "总价格" + sumPrice + customer.ToString() + "地址：" + address;
         }
         public Customer customer = new Customer();
         [Key]
-        public int Id { get; set; }
+        public int id { get; set; }//主键
         public string oderTime { get; set; }
         public double sumPrice { get; set; }
         public string address { get; set; }
 
-        public List<OrderDetails> orderDetails  { get;set; }
+        public List<OrderDetails> orderDetails  { get;set; }//一对多
 
         public void AddToSum()
         {
@@ -180,7 +180,7 @@ namespace T6
         }
         public Order(string id, string customer, string orderTime, string address)
         {
-            this.Id = int.Parse(id);
+            this.id = int.Parse(id);
             this.customer.customername = customer;
             this.oderTime = orderTime;
 
@@ -188,7 +188,7 @@ namespace T6
         }
         public bool Equals(Order a)
         {
-            if (this.Id == a.Id)
+            if (this.id == a.id)
                 return true;
             else return false;
         }
@@ -215,8 +215,12 @@ namespace T6
      public class OrderDetails//商品，单价，数量
     {
 
-        public int OrderId { get; set; }
+        [Key]
+        public string comName { get; set; }//主键
+        public double comPrice { get; set; }
 
+        public int OrderId { get; set; }//外键
+        public Order Order { get; set; }//多对一关系
         public override string ToString()
         {
             return commodity.ToString() + "数量：" + number;
@@ -224,9 +228,7 @@ namespace T6
         public Commodity commodity;
 
         public int number { get; set; }
-        [Key]
-        public string comName { get; set; }
-        public double comPrice { get; set; }
+
         public OrderDetails()
         {
 
@@ -266,9 +268,9 @@ namespace T6
             {
                 foreach (Order i in orders)
                 {
-                    if (i.Id==order.Id)
+                    if (i.id==order.id)
                     {
-                        throw new ApplicationException($"the order {order.Id} already exists!");
+                        throw new ApplicationException($"the order {order.id} already exists!");
                     }
 
                 }
@@ -286,7 +288,7 @@ namespace T6
         {
             foreach (Order i in orders)
             {
-                if (int.Parse(id) == i.Id)
+                if (int.Parse(id) == i.id)
                 {
                     orders.Remove(i);
                     return true;
@@ -301,7 +303,7 @@ namespace T6
             Order modifyOrder = new Order();
             foreach (Order i in orders)
             {
-                if (int.Parse(id) == i.Id)
+                if (int.Parse(id) == i.id)
                 {
                     modifyOrder = i;
                     isfind = true;
@@ -329,7 +331,7 @@ namespace T6
         }
         public void SortOrders()
         {
-            orders.Sort((p1, p2) => (p1.Id - p2.Id));
+            orders.Sort((p1, p2) => (p1.id - p2.id));
         }
         public bool SearchOrder(string choice,string id)
         {
@@ -348,7 +350,7 @@ namespace T6
             {
                 foreach (Order i in orders)
                 {
-                    if (i.Id == int.Parse(id))
+                    if (i.id == int.Parse(id))
                     {
                         Console.WriteLine(i.ToString());
                         return true;

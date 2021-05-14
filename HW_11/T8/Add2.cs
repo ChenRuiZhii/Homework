@@ -53,7 +53,6 @@ namespace T8
                 }
 
             }
-
                 newOrder.orderDetails.Add(newDetails);
         }
 
@@ -77,6 +76,13 @@ namespace T8
 
             
             orderService.AddOrder(newOrder);
+            using (var db = new OrderModel())
+            {
+               
+                db.orders.Add(newOrder);
+                // db.orders.Add(orderD);
+                db.SaveChanges();
+            }
             this.Close();
         }
     }
