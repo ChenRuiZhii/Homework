@@ -25,7 +25,7 @@ namespace T8
         {
             foreach(Order i in orderService.orders)
             {
-                if(i.id == int.Parse(textBox1.Text))
+                if(i.Id == int.Parse(textBox1.Text))
                 {
                     SearchReturn searchReturn = new SearchReturn(i);
                     searchReturn.ShowDialog();

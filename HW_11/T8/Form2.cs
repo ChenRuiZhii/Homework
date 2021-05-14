@@ -26,10 +26,10 @@ namespace T8
             
             foreach (Order i in orderservice.orders)
             {
-                if (i.id == int.Parse(id))
+                if (i.Id == int.Parse(id))
                 {
                     label1.Text = i.customer.ToString();
-                    label2.Text = "订单号：" + i.id;
+                    label2.Text = "订单号：" + i.Id;
                     label3.Text = "配送地址：" + i.address;
                     return;
                 }

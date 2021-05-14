@@ -153,7 +153,7 @@ namespace T6
     public class Order//订单ID，客户，下单时间，总金额，配送地址
     {
         public Order() {
-            this.id = 0;
+            this.Id = 0;
             this.customer.customername = "nil";
             this.oderTime = "nil";
 
@@ -161,16 +161,16 @@ namespace T6
         }
         public override string ToString()
         {
-            return "订单号：" + id + "下单时间：" + oderTime + "总价格" + sumPrice + customer.ToString() + "地址：" + address;
+            return "订单号：" + Id + "下单时间：" + oderTime + "总价格" + sumPrice + customer.ToString() + "地址：" + address;
         }
         public Customer customer = new Customer();
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
         public string oderTime { get; set; }
         public double sumPrice { get; set; }
         public string address { get; set; }
 
-        public List<OrderDetails> orderDetails = new List<OrderDetails>();
+        public List<OrderDetails> orderDetails  { get;set; }
 
         public void AddToSum()
         {
@@ -180,7 +180,7 @@ namespace T6
         }
         public Order(string id, string customer, string orderTime, string address)
         {
-            this.id = int.Parse(id);
+            this.Id = int.Parse(id);
             this.customer.customername = customer;
             this.oderTime = orderTime;
 
@@ -188,7 +188,7 @@ namespace T6
         }
         public bool Equals(Order a)
         {
-            if (this.id == a.id)
+            if (this.Id == a.Id)
                 return true;
             else return false;
         }
@@ -214,6 +214,9 @@ namespace T6
     }
      public class OrderDetails//商品，单价，数量
     {
+
+        public int OrderId { get; set; }
+
         public override string ToString()
         {
             return commodity.ToString() + "数量：" + number;
@@ -263,9 +266,9 @@ namespace T6
             {
                 foreach (Order i in orders)
                 {
-                    if (i.id==order.id)
+                    if (i.Id==order.Id)
                     {
-                        throw new ApplicationException($"the order {order.id} already exists!");
+                        throw new ApplicationException($"the order {order.Id} already exists!");
                     }
 
                 }
@@ -283,7 +286,7 @@ namespace T6
         {
             foreach (Order i in orders)
             {
-                if (int.Parse(id) == i.id)
+                if (int.Parse(id) == i.Id)
                 {
                     orders.Remove(i);
                     return true;
@@ -298,7 +301,7 @@ namespace T6
             Order modifyOrder = new Order();
             foreach (Order i in orders)
             {
-                if (int.Parse(id) == i.id)
+                if (int.Parse(id) == i.Id)
                 {
                     modifyOrder = i;
                     isfind = true;
@@ -326,7 +329,7 @@ namespace T6
         }
         public void SortOrders()
         {
-            orders.Sort((p1, p2) => (p1.id - p2.id));
+            orders.Sort((p1, p2) => (p1.Id - p2.Id));
         }
         public bool SearchOrder(string choice,string id)
         {
@@ -345,7 +348,7 @@ namespace T6
             {
                 foreach (Order i in orders)
                 {
-                    if (i.id == int.Parse(id))
+                    if (i.Id == int.Parse(id))
                     {
                         Console.WriteLine(i.ToString());
                         return true;

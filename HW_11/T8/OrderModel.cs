@@ -20,7 +20,7 @@ namespace T8
 
         public DbSet<OrderDetails> OrderDetails { get; set; }
 
-        public DbSet<OrderService> orderServices { get; set; }
+       // public DbSet<OrderService> orderServices { get; set; }
 
     }
 

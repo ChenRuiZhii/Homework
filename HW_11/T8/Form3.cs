@@ -25,7 +25,7 @@ namespace T8
 
             foreach (Order i in orderservice.orders)
             {
-                if (i.id == int.Parse(id))
+                if (i.Id == int.Parse(id))
                 {
                     label1.Text = "总价格：" + i.sumPrice;
 
