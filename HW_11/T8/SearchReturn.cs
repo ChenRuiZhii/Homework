@@ -16,7 +16,7 @@ namespace T8
         public SearchReturn(Order order)
         {
             InitializeComponent();
-            label1.Text = order.customer.ToString();
+            label1.Text = order.Customer.ToString();
             label2.Text = "订单号：" + order.id;
             label3.Text = "配送地址：" + order.address;
 

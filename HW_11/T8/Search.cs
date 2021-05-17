@@ -26,7 +26,9 @@ namespace T8
 
             using (var db = new OrderModel())
             {
-                var order = db.orders.FirstOrDefault(p => p.id == int.Parse(textBox1.Text));
+                int k = int.Parse(textBox1.Text);
+                var order = db.orders.FirstOrDefault(p => p.id == k);
+               // var order = db.orders.FirstOrDefault(p => p.id == int.Parse(textBox1.Text));
 
                 SearchReturn searchReturn = new SearchReturn(order);
                 searchReturn.ShowDialog();

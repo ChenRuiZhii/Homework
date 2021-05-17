@@ -38,7 +38,7 @@ namespace T8
 
             int num = int.Parse( textBox3.Text);
             double pri = double.Parse( textBox2.Text);
-            
+            newOrder.orderDetails = new List<OrderDetails>();
             OrderDetails newDetails = new OrderDetails(textBox1.Text, pri, num);
             bool isAdd = false;
 
@@ -75,12 +75,13 @@ namespace T8
             newOrder.AddToSum();
 
             
-            orderService.AddOrder(newOrder);
+            //orderService.AddOrder(newOrder);
             using (var db = new OrderModel())
             {
                
                 db.orders.Add(newOrder);
                 // db.orders.Add(orderD);
+
                 db.SaveChanges();
             }
             this.Close();

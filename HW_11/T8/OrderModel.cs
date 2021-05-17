@@ -18,7 +18,10 @@ namespace T8
 
         public DbSet<Order> orders { get; set; }
 
+        public DbSet<Customer> customers { get; set; }
+
         public DbSet<OrderDetails> OrderDetails { get; set; }
+        public DbSet<Commodity> commodities { get; set; }
 
        // public DbSet<OrderService> orderServices { get; set; }
 

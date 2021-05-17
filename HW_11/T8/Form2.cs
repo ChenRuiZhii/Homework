@@ -22,19 +22,16 @@ namespace T8
         public Form2(string id,OrderService orderservice)
         {
             InitializeComponent();
-
-            
-            foreach (Order i in orderservice.orders)
+            using(var db = new OrderModel())
             {
-                if (i.id == int.Parse(id))
-                {
-                    label1.Text = i.customer.ToString();
-                    label2.Text = "订单号：" + i.id;
-                    label3.Text = "配送地址：" + i.address;
-                    return;
-                }
+                int k = int.Parse(id);
 
+                var i = db.orders.Include("orderDetails").Include("Customer").FirstOrDefault(p => p.id == k);
+                label1.Text = i.Customer.ToString();
+                label2.Text = "订单号：" + i.id;
+                label3.Text = "配送地址：" + i.address;
             }
+
            
         }
         private void Form2_load(object sender,EventArgs e)

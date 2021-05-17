@@ -7,6 +7,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace T6
 {
@@ -143,7 +144,17 @@ namespace T6
     public class Customer
     {
         public Customer() { }
+       
+        public Customer(string a)
+        {
+            this.customername = a;
+        }
+        [Key]
+        //public int id { get; set; }
         public string customername { get; set; }
+
+        //public int OrderId { get; set; }//外键
+        //public Order Order { get; set; }//多对一关系
         public override string ToString()
         {
             return "用户名：" + customername;
@@ -154,16 +165,18 @@ namespace T6
     {
         public Order() {
             this.id = 0;
-            this.customer.customername = "nil";
+            this.Customer = new Customer();
+            this.Customer.customername = "nil";
             this.oderTime = "nil";
 
             this.address = address;
         }
         public override string ToString()
         {
-            return "订单号：" + id + "下单时间：" + oderTime + "总价格" + sumPrice + customer.ToString() + "地址：" + address;
+            return "订单号：" + id + "下单时间：" + oderTime + "总价格" + sumPrice + Customer.ToString() + "地址：" + address;
         }
-        public Customer customer = new Customer();
+        //Key,ForeignKey("Customer")]
+        public Customer Customer { get; set; }
         [Key]
         public int id { get; set; }//主键
         public string oderTime { get; set; }
@@ -181,7 +194,8 @@ namespace T6
         public Order(string id, string customer, string orderTime, string address)
         {
             this.id = int.Parse(id);
-            this.customer.customername = customer;
+            this.Customer = new Customer(customer);
+           // this.Customer.customername = customer;
             this.oderTime = orderTime;
 
             this.address = address;
@@ -200,6 +214,7 @@ namespace T6
         {
             return "商品名：" + comName + "价格:" + comPrice;
         }
+        [Key]
         public string comName { get; set; }
         public double comPrice { get; set; }
         public Commodity()
@@ -225,7 +240,7 @@ namespace T6
         {
             return commodity.ToString() + "数量：" + number;
         }
-        public Commodity commodity;
+        public Commodity commodity { get; set; }
 
         public int number { get; set; }
 
@@ -317,7 +332,7 @@ namespace T6
             switch (item)
             {
                 case "1":
-                    modifyOrder.customer.customername = target;
+                    modifyOrder.Customer.customername = target;
                     break;
                 case "2":
                     modifyOrder.oderTime = target;

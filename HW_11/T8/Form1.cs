@@ -52,19 +52,20 @@ namespace T8
             //orderService.orders.Add(orderC);
             // orderService.orders.Add(orderD);
             //dataGridView1.DataSource = orderService.orders;
-            OrderDetails recreationalMachines = new OrderDetails("游戏机", 1000.00);
+            OrderDetails recreationalMachines = new OrderDetails("recreationalMachines", 1000.00);
+
             Order order1 = new Order("1", "A", "now", "here");
             //order1.orderDetails.Add(recreationalMachines);
-            Customer A = new Customer();
-            A.customername = "A";
+            Customer B = new Customer();
+            B.customername = "B";
+            
 
-            using (var db = new OrderModel())
+           /*using (var db = new OrderModel())
             {
-                var order = new Order { address = "WHU", id = 1, oderTime = "now", customer = A };
-                order.orderDetails = new List<OrderDetails>()
-                {
-                    recreationalMachines
-                };
+                var order = new Order { address = "WHU", id = 2, oderTime = "now" };
+                order.orderDetails = new List<OrderDetails>();
+                order.orderDetails.Add(recreationalMachines);
+                order.Customer = B;
                 order.AddToSum();
                // orderservice.orders = new List<Order>()
                 //{
@@ -74,16 +75,22 @@ namespace T8
                 db.orders.Add(order);
                 // db.orders.Add(orderD);
                 db.SaveChanges();
-            }
+            }*/
 
+            using(var db = new OrderModel())
+            {
+                var returnOrders = db.orders.Include("customer").Include("OrderDetails").Include("OrderDetails.Commodity");
+                dataGridView1.DataSource = returnOrders.ToList();
+            }
 
 
 
             // var db = new OrderModel();
             // db.orders.Add(orderA);
             //  db.orders.Add(orderD);
-            var fortest = new OrderModel();
-            dataGridView1.DataSource = fortest.orders;
+          //  var fortest = new OrderModel();
+
+            //dataGridView1.DataSource = fortest.orders;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
 
@@ -133,12 +140,23 @@ namespace T8
         private void button4_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = null;
+            using (var db = new OrderModel())
+            {
+                var returnOrders = db.orders.Include("customer").Include("OrderDetails").Include("OrderDetails.Commodity");
+                dataGridView1.DataSource = returnOrders.ToList();
+            }
 
-            dataGridView1.DataSource = orderService.orders;
 
+
+            // var db = new OrderModel();
+            // db.orders.Add(orderA);
+            //  db.orders.Add(orderD);
+            //  var fortest = new OrderModel();
+
+            //dataGridView1.DataSource = fortest.orders;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
-            
+
         }
 
         private void orderBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -180,6 +198,11 @@ namespace T8
             Inport inport = new Inport();
             inport.orderService = orderService;
             inport.ShowDialog();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

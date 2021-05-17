@@ -23,21 +23,20 @@ namespace T8
             InitializeComponent();
 
 
-            foreach (Order i in orderservice.orders)
+
+            using (var db = new OrderModel())
             {
-                if (i.id == int.Parse(id))
-                {
-                    label1.Text = "总价格：" + i.sumPrice;
+                int k = int.Parse(id);
 
+                var i = db.orders.Include("orderDetails").FirstOrDefault(p => p.id == k);
+                label1.Text = "总价格：" + i.sumPrice;
 
-                    dataGridView1.DataSource = i.orderDetails;
-                    this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-
-
-                    return;
-                }
+                dataGridView1.DataSource = i.orderDetails;
+                this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
             }
+
+           
 
         }
 

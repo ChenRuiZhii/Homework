@@ -33,9 +33,10 @@ namespace T8
         {
             using(var db = new OrderModel())
             {
-                var order = db.orders.FirstOrDefault(p => p.id == int.Parse(textBox1.Text));
+                int k = int.Parse(textBox1.Text);
+                var order = db.orders.FirstOrDefault(p => p.id == k);
                 db.Entry(order).State = System.Data.Entity.EntityState.Modified;
-                order.customer.customername = textBox2.Text;
+                order.Customer.customername = textBox2.Text;
                 db.SaveChanges();
                 
                 
@@ -52,7 +53,8 @@ namespace T8
            // this.Close();
             using (var db = new OrderModel())
             {
-                var order = db.orders.FirstOrDefault(p => p.id == int.Parse(textBox1.Text));
+                int k = int.Parse(textBox1.Text);
+                var order = db.orders.FirstOrDefault(p => p.id == k);
                 db.Entry(order).State = System.Data.Entity.EntityState.Modified;
                 order.oderTime = textBox2.Text;
                 db.SaveChanges();
@@ -68,7 +70,8 @@ namespace T8
             //this.Close();
             using (var db = new OrderModel())
             {
-                var order = db.orders.FirstOrDefault(p => p.id == int.Parse(textBox1.Text));
+                int k = int.Parse(textBox1.Text);
+                var order = db.orders.FirstOrDefault(p => p.id == k);
                 db.Entry(order).State = System.Data.Entity.EntityState.Modified;
                 order.address = textBox2.Text;
                 db.SaveChanges();

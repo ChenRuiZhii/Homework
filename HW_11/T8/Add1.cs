@@ -46,12 +46,12 @@ namespace T8
             //textBox2.DataBindings.Add("Text", this, "cus1");
             //textBox3.DataBindings.Add("Text", this, "orderTime");
             //textBox4.DataBindings.Add("Text", this, "add");
-            id1 = textBox1.Text;
+            //id1 = textBox1.Text;
             cus1 = textBox2.Text;
             oderTime = textBox3.Text;
             add = textBox4.Text;
-            Order newOrder = new Order(id1, cus1, oderTime, add);//尚未add
-
+            Order newOrder = new Order("0", cus1, oderTime, add);//尚未add
+            //newOrder.Customer.id = 0;
             Add2 add2 = new Add2();
             add2.newOrder = newOrder;
             add2.orderService = orderService;
@@ -60,6 +60,11 @@ namespace T8
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

@@ -29,10 +29,12 @@ namespace T8
             string id = textBox1.Text;
             using (var db = new OrderModel())
             {
+                int k = int.Parse(id);
 
-                var order = db.orders.Include("OrderDetails").FirstOrDefault(p => p.id == int.Parse(id));
+                var order = db.orders.Include("OrderDetails").FirstOrDefault(p => p.id == k);
                 if (order != null)
                 {
+                    //db.orders.Attach(order);
                     db.orders.Remove(order);
                     db.SaveChanges();
                 }

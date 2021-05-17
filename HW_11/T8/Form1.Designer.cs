@@ -31,22 +31,22 @@ namespace T8
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oderTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oderTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
@@ -72,42 +72,6 @@ namespace T8
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "订单号";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // oderTimeDataGridViewTextBoxColumn
-            // 
-            this.oderTimeDataGridViewTextBoxColumn.DataPropertyName = "oderTime";
-            this.oderTimeDataGridViewTextBoxColumn.HeaderText = "下单时间";
-            this.oderTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.oderTimeDataGridViewTextBoxColumn.Name = "oderTimeDataGridViewTextBoxColumn";
-            this.oderTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // sumPriceDataGridViewTextBoxColumn
-            // 
-            this.sumPriceDataGridViewTextBoxColumn.DataPropertyName = "sumPrice";
-            this.sumPriceDataGridViewTextBoxColumn.HeaderText = "总价格";
-            this.sumPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.sumPriceDataGridViewTextBoxColumn.Name = "sumPriceDataGridViewTextBoxColumn";
-            this.sumPriceDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "配送地址";
-            this.addressDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            this.addressDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = typeof(T6.Order);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -129,6 +93,7 @@ namespace T8
             this.label2.Size = new System.Drawing.Size(292, 27);
             this.label2.TabIndex = 2;
             this.label2.Text = "双击总价格以查询对应订单详情";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button1
             // 
@@ -169,11 +134,6 @@ namespace T8
             this.label3.TabIndex = 7;
             this.label3.Text = "序列化、反序列化、搜索";
             // 
-            // orderBindingSource
-            // 
-            this.orderBindingSource.DataSource = typeof(T6.Order);
-            this.orderBindingSource.CurrentChanged += new System.EventHandler(this.orderBindingSource_CurrentChanged);
-            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(321, 83);
@@ -213,6 +173,47 @@ namespace T8
             this.button6.Text = "序列化";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "订单号";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // oderTimeDataGridViewTextBoxColumn
+            // 
+            this.oderTimeDataGridViewTextBoxColumn.DataPropertyName = "oderTime";
+            this.oderTimeDataGridViewTextBoxColumn.HeaderText = "下单时间";
+            this.oderTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.oderTimeDataGridViewTextBoxColumn.Name = "oderTimeDataGridViewTextBoxColumn";
+            this.oderTimeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // sumPriceDataGridViewTextBoxColumn
+            // 
+            this.sumPriceDataGridViewTextBoxColumn.DataPropertyName = "sumPrice";
+            this.sumPriceDataGridViewTextBoxColumn.HeaderText = "总价格";
+            this.sumPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.sumPriceDataGridViewTextBoxColumn.Name = "sumPriceDataGridViewTextBoxColumn";
+            this.sumPriceDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "配送地址";
+            this.addressDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(T6.Order);
+            // 
+            // orderBindingSource
+            // 
+            this.orderBindingSource.DataSource = typeof(T6.Order);
+            this.orderBindingSource.CurrentChanged += new System.EventHandler(this.orderBindingSource_CurrentChanged);
             // 
             // Form1
             // 
